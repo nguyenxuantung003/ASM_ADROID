@@ -8,12 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.myapplication.Activity.HomeActivity;
 import com.example.myapplication.Activity.Login_Activity;
 import com.facebook.FacebookSdk;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnexit;
+    Button btnexit,btnhome;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -21,6 +22,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         btnexit = findViewById(R.id.btnexit);
+        btnhome = findViewById(R.id.btnhome);
+        btnhome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, HomeActivity.class));
+            }
+        });
         btnexit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
